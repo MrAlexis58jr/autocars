@@ -7,45 +7,61 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <style>
     body {
-      font-family: 'Segoe UI', sans-serif;
       margin: 0;
-      padding: 0;
-      background-color: #111;
-      color: #f4f4f4;
+      font-family: 'Segoe UI', sans-serif;
+      background-color: #121212;
+      color: #f0f0f0;
     }
     header {
       background-color: #000;
+      padding: 10px;
       text-align: center;
-      padding: 1rem 0;
     }
     header img {
-      max-height: 80px;
+      max-height: 90px;
     }
-    nav a {
+    .container {
+      display: flex;
+      min-height: 100vh;
+    }
+    .sidebar {
+      width: 220px;
+      background-color: #1c1c1c;
+      padding: 1rem;
+      box-shadow: 2px 0 10px rgba(0,0,0,0.5);
+    }
+    .sidebar h3 {
       color: orange;
-      margin: 0 15px;
+      margin-bottom: 1rem;
+    }
+    .sidebar a {
+      display: block;
+      padding: 10px;
+      margin-bottom: 10px;
+      background-color: #292929;
+      color: white;
       text-decoration: none;
-      font-weight: bold;
+      border-radius: 5px;
+      transition: background 0.3s;
+    }
+    .sidebar a:hover {
+      background-color: orange;
+      color: black;
     }
     main {
+      flex: 1;
       padding: 2rem;
-      max-width: 1000px;
-      margin: auto;
     }
     h1, h2 {
       color: orange;
     }
-    .producto {
-      background-color: #1e1e1e;
-      border: 1px solid #333;
-      padding: 1rem;
-      margin-bottom: 1rem;
-      border-radius: 8px;
+    .catalogo-section {
+      margin-top: 2rem;
     }
     .catalogo-link {
       display: inline-block;
-      margin-top: 1rem;
-      padding: 0.5rem 1rem;
+      margin: 1rem 0;
+      padding: 0.75rem 1.5rem;
       background-color: orange;
       color: black;
       font-weight: bold;
@@ -77,42 +93,33 @@
 
 <header>
   <img src="logo.png" alt="Logo AutoCars Accesorios">
-  <nav>
-    <a href="#productos">Catálogo</a>
-    <a href="#contacto">Contacto</a>
-  </nav>
 </header>
 
-<main>
-  <section id="inicio">
-    <h2>Bienvenidos</h2>
-    <p>Accesorios, Rotulaciones y Polarizado. Calidad para la Meseta Purépecha.</p>
-  </section>
+<div class="container">
+  <div class="sidebar">
+    <h3>Catálogos</h3>
+    <a href="CatalogoA.pdf" target="_blank">Catálogo General</a>
+    <a href="#" onclick="alert('Próximamente'); return false;">Polarizados</a>
+    <a href="#" onclick="alert('Próximamente'); return false;">Rotulaciones</a>
+    <a href="#" onclick="alert('Próximamente'); return false;">Estética Automotriz</a>
+  </div>
 
-  <section id="productos">
-    <h2>Catálogo</h2>
-    <p>Puedes consultar o descargar nuestro catálogo completo en PDF:</p>
-    <a class="catalogo-link" href="cata.pdf" target="_blank" download>
-      Descargar catálogo PDF
-    </a>
+  <main>
+    <section id="inicio">
+      <h2>Bienvenidos</h2>
+      <p>AutoCar's Accesorios Meseta Purépecha te ofrece productos de calidad en antenas, polarizados, rotulaciones y estética automotriz. Atendemos en la zona de Uruapan, Michoacán y la Meseta Purépecha.</p>
+      <a class="catalogo-link" href="CatalogoA.pdf" target="_blank" download>Descargar catálogo PDF</a>
+    </section>
 
-    <div class="producto">
-      <h3>Antena Universal</h3>
-      <p><strong>Unidad:</strong> Pieza</p>
-      <p><strong>Precio Menudeo:</strong> $120</p>
-      <p><strong>Disponible:</strong> 50 piezas</p>
-      <p><strong>Precio Mayoreo:</strong> $90</p>
-    </div>
-  </section>
-
-  <section id="contacto">
-    <h2>Contacto</h2>
-    <p><strong>Dirección:</strong> El Zapote, 60040 Uruapan, Mich</p>
-    <p><strong>WhatsApp:</strong> 4525260369</p>
-    <p><strong>WhatsApp:</strong> 4522039394</p>
-    <p><strong>Facebook:</strong> AutoCar's Accesorios Meseta Purépecha</p>
-  </section>
-</main>
+    <section id="contacto" class="catalogo-section">
+      <h2>Contacto</h2>
+      <p><strong>Dirección:</strong> El Zapote, 60040 Uruapan, Mich</p>
+      <p><strong>WhatsApp:</strong> 4525260369</p>
+      <p><strong>WhatsApp:</strong> 4522039394</p>
+      <p><strong>Facebook:</strong> AutoCar's Accesorios Meseta Purépecha</p>
+    </section>
+  </main>
+</div>
 
 <footer>
   <p>&copy; 2025 AutoCar's Accesorios Meseta Purépecha - Todos los derechos reservados.</p>
