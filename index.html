@@ -11,28 +11,48 @@
       background-color: #121212;
       color: #f0f0f0;
     }
+
     header {
       background-color: #000;
       padding: 10px;
       text-align: center;
+      position: relative;
     }
+
     header img {
       max-height: 90px;
     }
+
+    .menu-toggle {
+      display: none;
+      position: absolute;
+      left: 15px;
+      top: 15px;
+      font-size: 28px;
+      color: orange;
+      background: none;
+      border: none;
+      cursor: pointer;
+    }
+
     .container {
       display: flex;
       min-height: 100vh;
     }
+
     .sidebar {
       width: 220px;
       background-color: #1c1c1c;
       padding: 1rem;
       box-shadow: 2px 0 10px rgba(0,0,0,0.5);
+      transition: transform 0.3s ease;
     }
+
     .sidebar h3 {
       color: orange;
       margin-bottom: 1rem;
     }
+
     .sidebar a {
       display: block;
       padding: 10px;
@@ -43,20 +63,25 @@
       border-radius: 5px;
       transition: background 0.3s;
     }
+
     .sidebar a:hover {
       background-color: orange;
       color: black;
     }
+
     main {
       flex: 1;
       padding: 2rem;
     }
+
     h1, h2 {
       color: orange;
     }
+
     .catalogo-section {
       margin-top: 2rem;
     }
+
     .catalogo-link {
       display: inline-block;
       margin: 1rem 0;
@@ -67,12 +92,14 @@
       border-radius: 5px;
       text-decoration: none;
     }
+
     footer {
       background-color: #000;
       color: white;
       text-align: center;
       padding: 1rem 0;
     }
+
     .social-buttons {
       position: fixed;
       bottom: 20px;
@@ -82,11 +109,37 @@
       gap: 10px;
       z-index: 1000;
     }
+
     .social-buttons a img {
       width: 48px;
       height: 48px;
     }
+
+    /* Responsive styles */
+    @media (max-width: 768px) {
+      .container {
+        flex-direction: column;
+      }
+
+      .sidebar {
+        position: absolute;
+        top: 60px;
+        left: 0;
+        width: 100%;
+        transform: translateY(-100%);
+        z-index: 999;
+      }
+
+      .sidebar.open {
+        transform: translateY(0);
+      }
+
+      .menu-toggle {
+        display: block;
+      }
+    }
   </style>
+
   <script>
     function mostrarCatalogo(nombre) {
       const contenido = document.getElementById('contenido-catalogo');
@@ -99,18 +152,25 @@
       } else if (nombre === 'Polarizado') {
         contenido.innerHTML = `
           <h2>Polarizado</h2>
-          <p>Consulta informacion detallada con los contactos proporcionados.</p>
-          
+          <p>Consulta información detallada con los contactos proporcionados.</p>
         `;
       } else {
         contenido.innerHTML = '<p>Catálogo no disponible.</p>';
       }
+
+      // Cierra menú en móvil tras seleccionar
+      document.querySelector('.sidebar').classList.remove('open');
+    }
+
+    function toggleSidebar() {
+      document.querySelector('.sidebar').classList.toggle('open');
     }
   </script>
 </head>
 <body>
 
 <header>
+  <button class="menu-toggle" onclick="toggleSidebar()">☰</button>
   <img src="logo.png" alt="Logo AutoCars Accesorios">
 </header>
 
@@ -124,7 +184,7 @@
   <main>
     <section id="inicio">
       <h2>Bienvenidos</h2>
-      <p>AutoCar's Accesorios te ofrece productos de calidad en accesrios, polarizados y estética automotriz. Atendemos en la zona de Uruapan, Michoacán.</p>
+      <p>AutoCar's Accesorios te ofrece productos de calidad en accesorios, polarizados y estética automotriz. Atendemos en la zona de Uruapan, Michoacán.</p>
     </section>
 
     <section id="contenido-catalogo" class="catalogo-section">
@@ -159,4 +219,3 @@
 
 </body>
 </html>
-
