@@ -5,9 +5,7 @@
   <title>AutoCar's Accesorios</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <style>
-    * {
-      box-sizing: border-box;
-    }
+    * { box-sizing: border-box; }
     body {
       margin: 0;
       font-family: 'Segoe UI', sans-serif;
@@ -123,7 +121,7 @@
     }
     @media (max-width: 768px) {
       header img {
-        max-height: 50px;
+        max-height: 45px;
       }
       .sidebar {
         width: 100%;
@@ -146,20 +144,39 @@
     function mostrarCatalogo(nombre) {
       const sidebar = document.querySelector('.sidebar');
       const contenido = document.getElementById('contenido-catalogo');
-      if (nombre === 'accesorios') {
-        contenido.innerHTML = `
-          <h2>Catálogo de accesorios</h2>
-          <p>En este catálogo encontrarás una amplia variedad de accesorios y componentes automotrices que manejamos en stock. Ideal para clientes que buscan disponibilidad inmediata.</p>
-          <a class="catalogo-link" href="cata.pdf" target="_blank" download>Descargar Catálogo de accesorios (PDF)</a>
-        `;
-      } else if (nombre === 'Polarizado') {
-        contenido.innerHTML = `
-          <h2>Polarizado</h2>
-          <p>Consulta información detallada con los contactos proporcionados.</p>
-        `;
-      } else {
-        contenido.innerHTML = '<p>Catálogo no disponible.</p>';
+      let html = '';
+      switch(nombre) {
+        case 'accesorios':
+          html = `
+            <h2>Catálogo de Accesorios</h2>
+            <p>Amplia variedad de accesorios y componentes automotrices disponibles en stock.</p>
+            <a class="catalogo-link" href="cata.pdf" target="_blank" download>Descargar PDF</a>
+          `;
+          break;
+        case 'alerones':
+          html = `
+            <h2>Catálogo de Alerones</h2>
+            <p>Consulta nuestra selección de alerones deportivos y universales.</p>
+            <a class="catalogo-link" href="alerones.pdf" target="_blank" download>Descargar PDF</a>
+          `;
+          break;
+        case 'ventaCarros':
+          html = `
+            <h2>Catálogo de Venta de Carros</h2>
+            <p>Revisa los vehículos disponibles con información actualizada.</p>
+            <a class="catalogo-link" href="carros.pdf" target="_blank" download>Descargar PDF</a>
+          `;
+          break;
+        case 'opcional':
+          html = `
+            <h2>Catálogo Opcional</h2>
+            <p>Contenido en preparación. Próximamente disponible.</p>
+          `;
+          break;
+        default:
+          html = '<p>Catálogo no disponible.</p>';
       }
+      contenido.innerHTML = html;
       sidebar.classList.remove('open');
     }
   </script>
@@ -175,8 +192,10 @@
 
 <div class="sidebar">
   <h3>Catálogos</h3>
-  <a href="#" onclick="mostrarCatalogo('accesorios')">Catálogo de accesorios</a>
-  <a href="#" onclick="mostrarCatalogo('Polarizado')">Polarizado</a>
+  <a href="#" onclick="mostrarCatalogo('accesorios')">Accesorios</a>
+  <a href="#" onclick="mostrarCatalogo('alerones')">Alerones</a>
+  <a href="#" onclick="mostrarCatalogo('ventaCarros')">Venta de Carros</a>
+  <a href="#" onclick="mostrarCatalogo('opcional')">Catálogo Opcional</a>
 </div>
 
 <div class="container">
@@ -191,7 +210,7 @@
     </section>
 
     <section id="contacto" class="catalogo-section">
-      <h2>Contacto</h2>
+      <h2>📞 Contacto</h2>
       <p><strong>Dirección:</strong> El Zapote, 60040 Uruapan, Mich</p>
       <p><strong>WhatsApp:</strong> 4525260369</p>
       <p><strong>WhatsApp:</strong> 4522039394</p>
