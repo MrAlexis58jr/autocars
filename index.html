@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -88,6 +87,26 @@
       height: 48px;
     }
   </style>
+  <script>
+    function mostrarCatalogo(nombre) {
+      const contenido = document.getElementById('contenido-catalogo');
+      if (nombre === 'general') {
+        contenido.innerHTML = `
+          <h2>Catálogo General</h2>
+          <p>En este catálogo encontrarás una amplia variedad de antenas, accesorios y componentes automotrices que manejamos en stock. Ideal para clientes que buscan disponibilidad inmediata.</p>
+          <a class="catalogo-link" href="cata.pdf" target="_blank" download>Descargar Catálogo General (PDF)</a>
+        `;
+      } else if (nombre === 'polarizados') {
+        contenido.innerHTML = `
+          <h2>Catálogo de Polarizados</h2>
+          <p>Consulta los tipos de polarizado disponibles, calidades y tonos. Ofrecemos instalación profesional con productos de alta durabilidad.</p>
+          <a class="catalogo-link" href="polarizados.pdf" target="_blank" download>Descargar Catálogo de Polarizados (PDF)</a>
+        `;
+      } else {
+        contenido.innerHTML = '<p>Catálogo no disponible.</p>';
+      }
+    }
+  </script>
 </head>
 <body>
 
@@ -98,17 +117,18 @@
 <div class="container">
   <div class="sidebar">
     <h3>Catálogos</h3>
-    <a href="CatalogoA.pdf" target="_blank">Catálogo General</a>
-    <a href="#" onclick="alert('Próximamente'); return false;">Polarizados</a>
-    <a href="#" onclick="alert('Próximamente'); return false;">Rotulaciones</a>
-    <a href="#" onclick="alert('Próximamente'); return false;">Estética Automotriz</a>
+    <a href="#" onclick="mostrarCatalogo('general')">Catálogo General</a>
+    <a href="#" onclick="mostrarCatalogo('polarizados')">Polarizados</a>
   </div>
 
   <main>
     <section id="inicio">
       <h2>Bienvenidos</h2>
-      <p>AutoCar's Accesorios Meseta Purépecha te ofrece productos de calidad en antenas, polarizados, rotulaciones y estética automotriz. Atendemos en la zona de Uruapan, Michoacán y la Meseta Purépecha.</p>
-      <a class="catalogo-link" href="CatalogoA.pdf" target="_blank" download>Descargar catálogo PDF</a>
+      <p>AutoCar's Accesorios Meseta Purépecha te ofrece productos de calidad en antenas, polarizados y estética automotriz. Atendemos en la zona de Uruapan, Michoacán y la Meseta Purépecha.</p>
+    </section>
+
+    <section id="contenido-catalogo" class="catalogo-section">
+      <!-- Aquí se carga el contenido del catálogo dinámicamente -->
     </section>
 
     <section id="contacto" class="catalogo-section">
@@ -139,3 +159,4 @@
 
 </body>
 </html>
+
