@@ -6,21 +6,77 @@
   <title>AutoCar's Accesorios Meseta Purépecha</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <style>
-    body { font-family: Arial, sans-serif; margin: 0; padding: 0; background-color: #f4f4f4; }
-    header, footer { background-color: #202020; color: white; text-align: center; padding: 1rem 0; }
-    nav a { color: white; margin: 0 15px; text-decoration: none; }
-    main { padding: 2rem; max-width: 1000px; margin: auto; }
-    h1, h2 { color: #202020; }
-    .producto { background-color: white; border: 1px solid #ccc; padding: 1rem; margin-bottom: 1rem; border-radius: 8px; }
-    .whatsapp { position: fixed; bottom: 20px; right: 20px; z-index: 1000; }
-    .whatsapp img { width: 48px; height: 48px; }
-    .catalogo-link { display: inline-block; margin-top: 1rem; padding: 0.5rem 1rem; background-color: #202020; color: white; border-radius: 5px; text-decoration: none; }
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #111;
+      color: #f4f4f4;
+    }
+    header {
+      background-color: #000;
+      text-align: center;
+      padding: 1rem 0;
+    }
+    header img {
+      max-height: 80px;
+    }
+    nav a {
+      color: orange;
+      margin: 0 15px;
+      text-decoration: none;
+      font-weight: bold;
+    }
+    main {
+      padding: 2rem;
+      max-width: 1000px;
+      margin: auto;
+    }
+    h1, h2 {
+      color: orange;
+    }
+    .producto {
+      background-color: #1e1e1e;
+      border: 1px solid #333;
+      padding: 1rem;
+      margin-bottom: 1rem;
+      border-radius: 8px;
+    }
+    .catalogo-link {
+      display: inline-block;
+      margin-top: 1rem;
+      padding: 0.5rem 1rem;
+      background-color: orange;
+      color: black;
+      font-weight: bold;
+      border-radius: 5px;
+      text-decoration: none;
+    }
+    footer {
+      background-color: #000;
+      color: white;
+      text-align: center;
+      padding: 1rem 0;
+    }
+    .social-buttons {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      z-index: 1000;
+    }
+    .social-buttons a img {
+      width: 48px;
+      height: 48px;
+    }
   </style>
 </head>
 <body>
 
 <header>
-  <h1>Autocar's Refaccionaria</h1>
+  <img src="logo.png" alt="Logo AutoCars Accesorios">
   <nav>
     <a href="#productos">Catálogo</a>
     <a href="#contacto">Contacto</a>
@@ -30,16 +86,15 @@
 <main>
   <section id="inicio">
     <h2>Bienvenidos</h2>
-    <p>Accesorios, Rotulaciones y Polarizado</p>
+    <p>Accesorios, Rotulaciones y Polarizado. Calidad para la Meseta Purépecha.</p>
   </section>
 
   <section id="productos">
     <h2>Catálogo</h2>
     <p>Puedes consultar o descargar nuestro catálogo completo en PDF:</p>
     <a class="catalogo-link" href="CatalogoA.pdf" target="_blank" download>
-  Descargar catálogo PDF
-</a>
-
+      Descargar catálogo PDF
+    </a>
 
     <div class="producto">
       <h3>Antena Universal</h3>
@@ -53,9 +108,9 @@
   <section id="contacto">
     <h2>Contacto</h2>
     <p><strong>Dirección:</strong> El Zapote, 60040 Uruapan, Mich</p>
-    <p><strong>WhatsApp:</strong> 4525260369 </p>
-    <p><strong>WhatsApp:</strong> 4522039394 </p>
-    <p><strong>Facebook:</strong> AutoCar's Accesorios Meseta Purépecha </p>
+    <p><strong>WhatsApp:</strong> 4525260369</p>
+    <p><strong>WhatsApp:</strong> 4522039394</p>
+    <p><strong>Facebook:</strong> AutoCar's Accesorios Meseta Purépecha</p>
   </section>
 </main>
 
@@ -63,25 +118,6 @@
   <p>&copy; 2025 AutoCar's Accesorios Meseta Purépecha - Todos los derechos reservados.</p>
 </footer>
 
-<!-- Estilos adicionales para ubicar los íconos correctamente -->
-<style>
-  .social-buttons {
-    position: fixed;
-    bottom: 20px;
-    right: 20px;
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-    z-index: 1000;
-  }
-
-  .social-buttons a img {
-    width: 48px;
-    height: 48px;
-  }
-</style>
-
-<!-- Botones flotantes de WhatsApp y Facebook -->
 <div class="social-buttons">
   <a href="https://wa.me/5214525260369" target="_blank">
     <img src="https://img.icons8.com/color/48/000000/whatsapp.png" alt="WhatsApp 1">
@@ -93,7 +129,6 @@
     <img src="https://img.icons8.com/?size=100&id=118497&format=png&color=000000" alt="Facebook">
   </a>
 </div>
-
 
 </body>
 </html>
