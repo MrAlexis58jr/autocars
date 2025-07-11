@@ -5,54 +5,62 @@
   <title>AutoCar's Accesorios</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <style>
+    * {
+      box-sizing: border-box;
+    }
     body {
       margin: 0;
       font-family: 'Segoe UI', sans-serif;
       background-color: #121212;
       color: #f0f0f0;
     }
-
     header {
       background-color: #000;
       padding: 10px;
-      text-align: center;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
       position: relative;
+      z-index: 1001;
     }
-
     header img {
       max-height: 90px;
+      margin: 0 auto;
     }
-
     .menu-toggle {
-      display: none;
-      position: absolute;
-      left: 15px;
-      top: 15px;
       font-size: 28px;
       color: orange;
       background: none;
       border: none;
       cursor: pointer;
+      position: absolute;
+      left: 15px;
+      top: 25px;
+      z-index: 1002;
     }
-
     .container {
       display: flex;
-      min-height: 100vh;
+      transition: margin-left 0.3s ease;
     }
-
     .sidebar {
       width: 220px;
       background-color: #1c1c1c;
       padding: 1rem;
       box-shadow: 2px 0 10px rgba(0,0,0,0.5);
-      transition: transform 0.3s ease;
+      position: fixed;
+      top: 0;
+      left: -220px;
+      height: 100%;
+      transition: left 0.3s ease;
+      z-index: 1000;
     }
-
+    .sidebar.open {
+      left: 0;
+    }
     .sidebar h3 {
       color: orange;
-      margin-bottom: 1rem;
+      margin-top: 100px;
     }
-
     .sidebar a {
       display: block;
       padding: 10px;
@@ -63,25 +71,25 @@
       border-radius: 5px;
       transition: background 0.3s;
     }
-
     .sidebar a:hover {
       background-color: orange;
       color: black;
     }
-
     main {
       flex: 1;
       padding: 2rem;
+      margin-left: 0;
+      transition: margin-left 0.3s ease;
     }
-
+    .sidebar.open + main {
+      margin-left: 220px;
+    }
     h1, h2 {
       color: orange;
     }
-
     .catalogo-section {
       margin-top: 2rem;
     }
-
     .catalogo-link {
       display: inline-block;
       margin: 1rem 0;
@@ -92,14 +100,12 @@
       border-radius: 5px;
       text-decoration: none;
     }
-
     footer {
       background-color: #000;
       color: white;
       text-align: center;
       padding: 1rem 0;
     }
-
     .social-buttons {
       position: fixed;
       bottom: 20px;
@@ -107,41 +113,33 @@
       display: flex;
       flex-direction: column;
       gap: 10px;
-      z-index: 1000;
+      z-index: 999;
     }
-
     .social-buttons a img {
       width: 48px;
       height: 48px;
     }
-
-    /* Responsive styles */
     @media (max-width: 768px) {
-      .container {
-        flex-direction: column;
-      }
-
       .sidebar {
-        position: absolute;
-        top: 60px;
-        left: 0;
         width: 100%;
-        transform: translateY(-100%);
-        z-index: 999;
+        left: -100%;
       }
-
       .sidebar.open {
-        transform: translateY(0);
+        left: 0;
       }
-
-      .menu-toggle {
-        display: block;
+      .sidebar.open + main {
+        margin-left: 0;
       }
     }
   </style>
-
   <script>
+    function toggleSidebar() {
+      const sidebar = document.querySelector('.sidebar');
+      sidebar.classList.toggle('open');
+    }
+
     function mostrarCatalogo(nombre) {
+      const sidebar = document.querySelector('.sidebar');
       const contenido = document.getElementById('contenido-catalogo');
       if (nombre === 'accesorios') {
         contenido.innerHTML = `
@@ -157,13 +155,7 @@
       } else {
         contenido.innerHTML = '<p>Catálogo no disponible.</p>';
       }
-
-      // Cierra menú en móvil tras seleccionar
-      document.querySelector('.sidebar').classList.remove('open');
-    }
-
-    function toggleSidebar() {
-      document.querySelector('.sidebar').classList.toggle('open');
+      sidebar.classList.remove('open');
     }
   </script>
 </head>
@@ -174,13 +166,13 @@
   <img src="logo.png" alt="Logo AutoCars Accesorios">
 </header>
 
-<div class="container">
-  <div class="sidebar">
-    <h3>Catálogos</h3>
-    <a href="#" onclick="mostrarCatalogo('accesorios')">Catálogo de accesorios</a>
-    <a href="#" onclick="mostrarCatalogo('Polarizado')">Polarizado</a>
-  </div>
+<div class="sidebar">
+  <h3>Catálogos</h3>
+  <a href="#" onclick="mostrarCatalogo('accesorios')">Catálogo de accesorios</a>
+  <a href="#" onclick="mostrarCatalogo('Polarizado')">Polarizado</a>
+</div>
 
+<div class="container">
   <main>
     <section id="inicio">
       <h2>Bienvenidos</h2>
@@ -188,7 +180,7 @@
     </section>
 
     <section id="contenido-catalogo" class="catalogo-section">
-      <!-- Aquí se carga el contenido del catálogo dinámicamente -->
+      <!-- Contenido dinámico -->
     </section>
 
     <section id="contacto" class="catalogo-section">
