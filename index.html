@@ -90,13 +90,13 @@
   <script>
     function mostrarCatalogo(nombre) {
       const contenido = document.getElementById('contenido-catalogo');
-      if (nombre === 'general') {
+      if (nombre === 'accesorios') {
         contenido.innerHTML = `
           <h2>Catálogo de accesorios</h2>
           <p>En este catálogo encontrarás una amplia variedad de accesorios y componentes automotrices que manejamos en stock. Ideal para clientes que buscan disponibilidad inmediata.</p>
           <a class="catalogo-link" href="cata.pdf" target="_blank" download>Descargar Catálogo de accesorios (PDF)</a>
         `;
-      } else if (nombre === 'polarizados') {
+      } else if (nombre === 'Polarizado') {
         contenido.innerHTML = `
           <h2>Polarizado</h2>
           <p>Consulta informacion detallada con los contactos proporcionados.</p>
@@ -117,8 +117,8 @@
 <div class="container">
   <div class="sidebar">
     <h3>Catálogos</h3>
-    <a href="#" onclick="mostrarCatalogo('general')">Catálogo General</a>
-    <a href="#" onclick="mostrarCatalogo('polarizados')">Polarizados</a>
+    <a href="#" onclick="mostrarCatalogo('accesorios')">Catálogo de accesorios</a>
+    <a href="#" onclick="mostrarCatalogo('Polarizado')">Polarizado</a>
   </div>
 
   <main>
